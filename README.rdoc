@@ -1,0 +1,29 @@
+= Enhanced HTTP input plugin for Fluent event collector
+
+== Overview
+
+This plugin enables some advanced features on existing HTTP input plugin
+
+== Installation
+
+    gem install fluent-plugin-http-enhanced
+
+== Configuration
+
+    <source>
+      type httpenhanced
+      port <port_to_listen>
+      full_query_string_record <true/false> # this will allow request like http://host:port/tag?key1=value1&key2=value2 to be translated to json.
+      respond_with_empty_img <true/false> # this will respond with empty gif image of 1x1 pixel. Its usefull when you use image tags to fire events (like Google Analytics) 
+      default_tag viki # this tag will be used if your request has no tag in it eg. http://host:port/?key1=value1&key2=value2
+    </source>
+
+
+== Copyright
+
+Copyright:: Copyright (c) 2011 Abhishek Parolkar
+License::   Apache License, Version 2.0
+
+
+
+
