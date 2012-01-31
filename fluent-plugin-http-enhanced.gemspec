@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.description = "Enhanced HTTP input plugin for Fluent event collector"
   gem.homepage = "https://github.com/parolkar/fluent-plugin-http-enhanced"
   gem.summary = gem.description
-  gem.version = "0.0.1"
+  gem.version = "0.0.2"
   gem.authors = ["Abhishek Parolkar"]
   gem.email = "abhishek@parolkar.com"
   gem.has_rdoc = false
