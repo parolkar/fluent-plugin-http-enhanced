@@ -11,9 +11,12 @@ module Fluent
         begin
           path = path_info[1..-1] # remove /
           tag = path.split('/').join('.')
+          return ["200 OK", {'Content-type'=>'text/xml'}, CROSSDOMAIN_XML]unless tag.downcase.match("crossdomain.xml").nil?
+
           tag = @default_tag if tag == '' && @default_tag != ''
           record = params
           time = params['time']
+          time ||= params['t']
           time = time.to_i
           if time == 0
             time = Engine.now
@@ -36,5 +39,12 @@ module Fluent
         super(path_info, params)
       end
     end
+    CROSSDOMAIN_XML=<<EOF
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+    <allow-access-from domain="*" />
+</cross-domain-policy>
+EOF
   end
 end

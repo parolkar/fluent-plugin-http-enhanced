@@ -19,6 +19,9 @@ This plugin enables some advanced features on existing HTTP input plugin
     </source>
 
 
+If your events contain a param named 'time' or 't' (eg. http://host:port/tag?key1=value1&t=123456789), it will be trated as timestamp for the event (Unix epoch time format) 
+It also serves /crossdomain.xml so that your flash apps can post events too.
+
 == Copyright
 
 Copyright:: Copyright (c) 2011 Abhishek Parolkar
