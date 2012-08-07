@@ -17,7 +17,7 @@ module Fluent
           record = params
           time = params['time']
           time ||= params['t']
-          time = time.to_i
+          time = time[0..9].to_i  # just make sure that its 10 digits epoch time in seconds not miliseconds
           if time == 0
             time = Engine.now
           end
