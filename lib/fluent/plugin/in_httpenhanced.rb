@@ -1,5 +1,7 @@
+require 'fluent/plugin/in_http.rb'
+
 module Fluent
-  class HttpEnhanced < Fluent::HttpInput
+  class HttpEnhanced < Fluent::Plugin::HttpInput
     Plugin.register_input('httpenhanced', self)
 
     config_param :full_query_string_record, :bool, :default => 'false'
@@ -24,7 +26,7 @@ module Fluent
           return ["400 Bad Request", {'Content-type'=>'text/plain'}, "400 Bad Request\n#{$!}\n"]
         end
         begin
-          Engine.emit(tag, time, record)
+          router.emit(tag, time, record)
         rescue
           return ["500 Internal Server Error", {'Content-type'=>'text/plain'}, "500 Internal Server Error\n#{$!}\n"]
         end
