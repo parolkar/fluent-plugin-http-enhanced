@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.description = "Enhanced HTTP input plugin for Fluent event collector"
   gem.homepage = "https://github.com/parolkar/fluent-plugin-http-enhanced"
   gem.summary = gem.description
-  gem.version = "0.0.5"
+  gem.version = "0.0.6"
   gem.authors = ["Abhishek Parolkar"]
   gem.email = "abhishek@parolkar.com"
   gem.has_rdoc = false
@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.executables = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.require_paths = ['lib']
-  gem.add_dependency "fluentd", "~> 0.10.8"
+  gem.add_dependency "fluentd", "~> 0.12.5"
 end
 
 
